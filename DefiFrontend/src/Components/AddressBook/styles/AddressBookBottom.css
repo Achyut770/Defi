@@ -16,6 +16,11 @@
   min-height: 150px;
 }
 
+.copyAddress {
+  cursor: pointer;
+  color: grey;
+}
+
 .addressBookBotom tr {
   border-bottom: 1px solid var(--border);
   position: relative;

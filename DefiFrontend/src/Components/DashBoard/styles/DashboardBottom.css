@@ -14,6 +14,11 @@
   border-radius: 50%;
 }
 
+.withOpacity {
+  opacity: 0.6;
+  cursor: not-allowed !important;
+}
+
 .Deposit {
   display: flex;
   gap: 5px;
@@ -93,6 +98,18 @@ table {
   background-color: green;
 }
 
+.Cancelled {
+  padding: 7px 10px;
+  max-width: 100px;
+  margin-left: 25px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: var(--red_bg);
+  color: red;
+}
+
 .progressBarRedColor {
   background-color: red;
 }
@@ -106,7 +123,14 @@ table {
     bottom: -15px;
     position: absolute;
     background-color: white;
-    color: black;
+    color: green;
+    right: 10px;
+  }
+  .Cancelled {
+    bottom: -15px;
+    position: absolute;
+    background-color: white;
+    color: red;
     right: 10px;
   }
   .status {

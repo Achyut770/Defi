@@ -65,7 +65,8 @@ const AddressBookMiddle = ({
           className={
             showAddAddress ? "coverScreen bgCoverScreen" : "coverScreen"
           }
-          onClick={() => hideStreamAndAddress()}></div>
+          onClick={() => hideStreamAndAddress()}
+        ></div>
       ) : null}
       {showAddAddress ? <AddAnAddress hideAddAddress={hideAddAddress} /> : null}
       <div className="AddressBookMiddle">
@@ -73,7 +74,8 @@ const AddressBookMiddle = ({
           <div className="allAddessContainer">
             <div
               className="allAddressAllStreams"
-              onClick={() => showAlddAddress()}>
+              onClick={() => showAlddAddress()}
+            >
               {value?.selectedAddressContainer.length === 0
                 ? " All Adrresses"
                 : "Selected Adrresses"}
@@ -82,7 +84,8 @@ const AddressBookMiddle = ({
                   allAdressesShow
                     ? "fa-sharp fa-solid fa-arrow-down makeItUp"
                     : "fa-sharp fa-solid fa-arrow-down makeItDown"
-                }></i>
+                }
+              ></i>
             </div>
             {allAdressesShow ? (
               <div className="addressOption adressesAndStreamOption ">
@@ -94,16 +97,17 @@ const AddressBookMiddle = ({
           <div className="allAddessContainer">
             <div
               className="allAddressAllStreams"
-              onClick={() => showAllStreams()}>
+              onClick={() => showAllStreams()}
+            >
               <span>All Streams</span>
-              <i
+              {/* <i
                 className={
                   allStreamsShow
                     ? "fa-sharp fa-solid fa-arrow-down makeItUp"
                     : "fa-sharp fa-solid fa-arrow-down makeItDown"
-                }></i>
+                }></i> */}
             </div>
-            {allStreamsShow ? (
+            {false ? (
               <div className="adressesAndStreamOption streamOption">
                 <AllStreamCard />
               </div>
@@ -132,12 +136,14 @@ const AddressBookMiddle = ({
                 value?.addressContainer.length === 0
                   ? null
                   : RemoveSelectedAddressFromAddressContainer()
-              }>
+              }
+            >
               Confirm <span className="cancelInResponsive">Remove</span>
             </div>
             <div
               className="removeAddress cancelRemove"
-              onClick={() => hideRemoveAddAddress()}>
+              onClick={() => hideRemoveAddAddress()}
+            >
               Cancel
             </div>
           </div>

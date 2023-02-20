@@ -43,7 +43,9 @@ const AddressBookBottom = ({
       setShowingAddress(data);
     }
   }, [value?.selectedAddressContainer, value?.addressContainer]);
-
+  const CopyAddress = (address: string) => {
+    navigator.clipboard.writeText(address);
+  };
   return (
     <>
       <div className="addressBookBotom">
@@ -77,9 +79,13 @@ const AddressBookBottom = ({
                     </td>
                     <td data-title="Address">
                       {items.address.slice(0, 5)}...
-                      {items.address.slice(37, 42)}
+                      {items.address.slice(37, 42)}&nbsp;
+                      <i
+                        className="fa-solid fa-copy copyAddress"
+                        onClick={() => CopyAddress(items.address)}
+                      ></i>
                     </td>
-                    <td data-title="Active Streams">1</td>
+                    <td data-title="Active Streams">-</td>
                     {removeAddressBool && (
                       <td>
                         <div
