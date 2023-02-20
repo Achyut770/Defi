@@ -55,7 +55,7 @@ const StreaminIndv: React.FC<Props> = ({ data }) => {
   const Cancel = async () => {
     setLoader(() => true);
     try {
-      await cancelStream(Number(data.streamId));
+      await cancelStream(data.streamId);
       setLoader(() => false);
       fetchStreamData();
       toast.success("Successfully Withdrawn");
@@ -68,11 +68,13 @@ const StreaminIndv: React.FC<Props> = ({ data }) => {
 
   if (!dataFromContract) return null;
 
+  let exist = dataFromContract.Exist;
+
   return (
     <tr>
       <td data-title="Status" className="status">
-        <div className={dataFromContract.Exist ? "Streaming" : "Cancelled"}>
-          {dataFromContract.Exist ? "Streaming" : "Cancelled"}
+        <div className={exist ? "Streaming" : "Cancelled"}>
+          {exist ? "Streaming" : "Cancelled"}
           {showCancelWithdraw ? (
             <div
               onClick={() => showAndHideCancelAndWithdraw()}
@@ -135,10 +137,20 @@ const StreaminIndv: React.FC<Props> = ({ data }) => {
         ></i>
         {showCancelWithdraw ? (
           <div className="cancelWithdraw">
-            <div className="addAddress Withdraw" onClick={() => Withdraw()}>
+            <div
+              className={
+                exist
+                  ? " addAddress Withdraw"
+                  : "addAddress withdraw withOpacity"
+              }
+              onClick={() => (exist ? Withdraw() : undefined)}
+            >
               Withdraw
             </div>
-            <div className="removeAddress" onClick={() => Cancel()}>
+            <div
+              className={exist ? " removeAddress" : "removeAddress withOpacity"}
+              onClick={() => (exist ? Cancel() : undefined)}
+            >
               Cancel
             </div>
           </div>

@@ -1,6 +1,5 @@
 import React from "react";
 import { useAccount } from "wagmi";
-import { StreamData } from "../src/Components/ActivityHistory/Card/CreateStream";
 import { StreamDataForWithdrawing } from "../src/Components/ActivityHistory/Card/WithdrawStreams";
 import Instances from "../Utils/ContractInstances";
 import EthereumBlockByDate from "../Utils/EthereumBlockByDate";

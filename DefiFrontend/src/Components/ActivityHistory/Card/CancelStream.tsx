@@ -22,6 +22,7 @@ const CancelStream: React.FC<CancelStreamProps> = ({ input }) => {
     StreamsDataForCancellingHistory[]
   >([]);
   useCancellingHistory(setLoading, setStreamData, input);
+  console.log(streamData);
 
   return (
     <>
@@ -45,7 +46,7 @@ const CancelStream: React.FC<CancelStreamProps> = ({ input }) => {
             streamData.map((items, index) => {
               return (
                 <tr key={index}>
-                  <td data-title="Stream Id">{items.streamId}</td>
+                  <td data-title="Stream Id">{Number(items.streamId)}</td>
                   <td data-title="Sender">
                     {items.sender.slice(0, 5)}...{items.sender.slice(37, 42)}
                   </td>
@@ -55,10 +56,11 @@ const CancelStream: React.FC<CancelStreamProps> = ({ input }) => {
                   </td>
 
                   <td data-title="Sender Balance">
-                    {items.senderBalance} {items.tokenAddress ? "Token" : "Eth"}{" "}
+                    {Number(items.senderBalance)}{" "}
+                    {items.tokenAddress ? "Token" : "Eth"}{" "}
                   </td>
                   <td data-title="Receiver Balance">
-                    {items.recipientBalance}
+                    {Number(items.recipientBalance)}
                     {items.tokenAddress ? "Token" : "Eth"}
                   </td>
                 </tr>

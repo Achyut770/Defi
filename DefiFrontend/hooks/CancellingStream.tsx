@@ -1,14 +1,14 @@
 import { useSigner } from "wagmi";
 import Instances from "../Utils/ContractInstances";
+import { BigNumber } from "ethers";
 const useCancelStream = () => {
   const { data } = useSigner();
   const { streamContractInstance } = Instances();
 
-  async function cancelStream(streamId: number) {
-    console.log("Called");
+  async function cancelStream(streamId: BigNumber) {
     const res = await streamContractInstance
       .connect(data)
-      .CancelStream(streamId, { gasLimit: 30000 });
+      .CancelStream(streamId, { gasLimit: 300000 });
     await res.wait();
   }
 
