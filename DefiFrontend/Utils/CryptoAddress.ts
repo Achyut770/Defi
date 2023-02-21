@@ -24,6 +24,7 @@ const usdtImage = "https://i.ibb.co/f0cQXFN/USDT.png";
 const busdImage = "https://i.ibb.co/5BwmxKQ/BUSD.png";
 const daiImage = "https://i.ibb.co/zPKqDWv/dai.jpg";
 const maticImage = "https://i.ibb.co/4f2v984/matic.png";
+const usdsImage = "https://i.ibb.co/vvVGLwp/usds.png";
 
 const Assets: Assets = {
   // Polygon
@@ -37,7 +38,8 @@ const Assets: Assets = {
       {
         name: "Matic",
         address: "eth",
-        icon: usdcImage,
+        icon: maticImage,
+        decimal: 18,
       },
       {
         name: "A_CR7",
@@ -65,7 +67,7 @@ const Assets: Assets = {
         name: "USDS",
         address: "0x8bf8210d92Df678f61AaBFd561f0B1F83BA7A3fC", // correct
         decimal: 6,
-        icon: usdtImage,
+        icon: usdsImage,
         coinGeckoId: "stableusd",
         canPayNiural: true,
       },
