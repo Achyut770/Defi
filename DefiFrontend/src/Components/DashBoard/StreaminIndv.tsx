@@ -66,7 +66,7 @@ const StreaminIndv: React.FC<Props> = ({ data }) => {
     }
   };
 
-  if (!dataFromContract) return null;
+  if (!dataFromContract || !value?.addressObj) return null;
 
   let exist = dataFromContract.Exist;
 
@@ -89,7 +89,12 @@ const StreaminIndv: React.FC<Props> = ({ data }) => {
         {data.receiver.slice(34, 42)}
       </td>
       <td data-title="Deposit" className="Deposit">
-        <span> {convertWeiToEther(dataFromContract.deposit)}</span>
+        <span>
+          {!data.tokenAddress
+            ? convertWeiToEther(dataFromContract.deposit)
+            : Number(dataFromContract.deposit) /
+              10 ** value?.addressObj[dataFromContract.tokenAddress].decimal}
+        </span>
 
         <div className="cryptoDashboard">
           <img
