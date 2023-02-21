@@ -121,7 +121,6 @@ contract Defi is ReentrancyGuard {
         _;
     }
 
-    event money(uint256 moneys);
 
     function getStreamDetails(uint256 _streamId)
         external
