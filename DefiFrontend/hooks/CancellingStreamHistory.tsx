@@ -108,7 +108,7 @@ const useCancellingHistory = (
 
   React.useEffect(() => {
     fetchWithDrawHistory();
-  }, []);
+  }, [address, input]);
 };
 
 export default useCancellingHistory;
