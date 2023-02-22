@@ -46,11 +46,8 @@ const CreateStream = ({ onClose }: CreateStreamProps) => {
 
   const handleClick = async (e: FormEvent) => {
     e.preventDefault();
-    if (
-      !EVM_Address_Regex.test(input?.tokenAddress) ||
-      !EVM_Address_Regex.test(input?.receiver)
-    ) {
-      return toast.error("Plz right Valid Addres");
+    if (!EVM_Address_Regex.test(input?.receiver)) {
+      return toast.error("Plz right Valid Receiver Address");
     }
     setLoader(() => true);
 
@@ -58,6 +55,9 @@ const CreateStream = ({ onClose }: CreateStreamProps) => {
       if (input.tokenAddress === "eth") {
         await createStreamWithEth(input);
       } else {
+        if (!EVM_Address_Regex.test(input?.tokenAddress)) {
+          return toast.error("Plz write valid token address");
+        }
         await createStreamWithToken(input);
       }
       toast.success("Successfull Created");
@@ -216,7 +216,7 @@ const CreateStream = ({ onClose }: CreateStreamProps) => {
                 </label>
               </div>
             </div>
-            <div className="~!">
+            <div className="datePicker">
               <div>Select DateRange:</div>
               <ReactDatePicker
                 minDate={new Date().setDate(new Date().getDate() + 1)}
